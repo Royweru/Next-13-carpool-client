@@ -5,7 +5,7 @@ import Image from 'next/image'
 export const Navbar =() => {
 
   const [state, setState] = useState(false)
-  const navRef = useRef()
+  const navRef:any = useRef()
 
   // Replace javascript:void(0) path with your path
   const navigation = [
