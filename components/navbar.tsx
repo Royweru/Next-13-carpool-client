@@ -10,9 +10,9 @@ export const Navbar =() => {
   // Replace javascript:void(0) path with your path
   const navigation = [
       { title: "Home", path: "javascript:void(0)" },
-      { title: "Cars", path: "javascript:void(0)" },
       { title: "About", path: "javascript:void(0)" },
       { title: "Blog", path: "javascript:void(0)" },
+      { title: "Contacts", path: "javascript:void(0)" },
   ]
 
   useEffect(() => {
@@ -69,8 +69,8 @@ export const Navbar =() => {
                     <div>
                         <ul className="flex flex-col-reverse space-x-0 lg:space-x-6 lg:flex-row">
                             <li className="mt-8 mb-8 lg:mt-0 lg:mb-0">
-                                <a href="javascript:void(0)" className="text-gray-600 hover:text-indigo-600">
-                                    Contact
+                                <a href="/cars" className="text-gray-600 hover:text-indigo-600 font-bold">
+                                    Cars
                                 </a>
                             </li>
                             <li className="mt-4 lg:mt-0">
