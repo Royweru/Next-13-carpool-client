@@ -1,6 +1,6 @@
 import React from 'react'
 
-const URL = `${process.env.PUBLIC_API_URL}/makes`
+const URL = `${process.env.PUBLIC_API_URL}/make`
 const getMakes = async () => {
   const res = await fetch(URL,{next:{revalidate:10}})
 

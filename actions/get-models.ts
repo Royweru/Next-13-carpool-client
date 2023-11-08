@@ -1,6 +1,6 @@
 import React from 'react'
 
-const URL = `${process.env.PUBLIC_API_URL}/models`
+const URL = `${process.env.PUBLIC_API_URL}/model`
 const getModels = async () => {
   const res = await fetch(URL,{next:{revalidate:10}})
 
