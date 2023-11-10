@@ -5,11 +5,11 @@ import CarClient from './components/car-client'
 import React from 'react'
 interface CarPageProps{
   searchParams:{
-    makeId:string,
-    modelId:string,
-    typeId:string,
-    color:string,
-    YOM:string,
+    makeId?:string,
+    modelId?:string,
+    typeId?:string,
+    color?:string,
+    YOM?:string,
   }
 }
 

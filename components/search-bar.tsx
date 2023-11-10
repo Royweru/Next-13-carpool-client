@@ -7,6 +7,7 @@ import SelectInput from "./select-input";
 import Image from "next/image";
 import { Type, Make, Model } from "@/types";
 import qs from "query-string";
+import { Button } from "./ui/button";
 
 interface SearchBarProps {
   types: Type[];
@@ -147,6 +148,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ types, makes, models }) => {
           placeholder="Year of Manufancture"
           className="input input-bordered w-full max-w-xs p-5 rounded"
         />
+        <div className=" w-full flex items-center justify-end">
+          <Button variant="ghost" className=" flex justify-center gap-x-4 items-center" size="lg" onClick={onSearch}>
+            <Search size={30}/>
+             SEARCH
+          </Button>
+        </div>
       </div>
     </div>
   );
