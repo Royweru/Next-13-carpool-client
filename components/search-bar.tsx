@@ -3,7 +3,7 @@
 import { Search } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import SelectInput from "./select-input";
+
 import Image from "next/image";
 import { Type, Make, Model } from "@/types";
 import qs from "query-string";
