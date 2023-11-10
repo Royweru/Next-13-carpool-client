@@ -2,20 +2,28 @@
 
 import { Search } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import SelectInput from "./select-input";
 import Image from "next/image";
+import { Type, Make, Model } from "@/types";
+import qs from "query-string";
 
 interface SearchBarProps {
   types: Type[];
   makes: Make[];
-  models:Model[]
+  models: Model[];
 }
-const SearchBar: React.FC<SearchBarProps> = ({ types, makes,models }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ types, makes, models }) => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   const [selectedMake, setSelectedMake] = useState("");
-  const[bodyType,sestBodyType] = useState("")
+  const [bodyType, setBodyType] = useState("");
   const [selectModels, setSelectModels] = useState<Model[] | undefined>([]);
   const [model, setModel] = useState("");
-
+  const [yom, setYom] = useState("");
+  const [color, setColor] = useState("");
   useEffect(() => {
     const currentMake = makes.find((make) => make.id === selectedMake);
 
@@ -23,6 +31,35 @@ const SearchBar: React.FC<SearchBarProps> = ({ types, makes,models }) => {
     setSelectModels(models);
   }, [selectedMake, makes]);
 
+  const onSearch = () => {
+    try {
+      const URL =
+        pathname === "/"
+          ? `${window.location.href}/cars`
+          : window.location.href;
+      let currentQuery = {};
+      if (searchParams) {
+        currentQuery = qs.parse(searchParams.toString());
+      }
+      const updatedQuery: any = {
+        ...currentQuery,
+        YOM: yom,
+        makeId: selectedMake,
+        modelId: model,
+        typeId: bodyType,
+      };
+      const pushUrl = qs.stringifyUrl(
+        {
+          url: URL,
+          query: updatedQuery,
+        },
+        { skipNull: true, skipEmptyString: true }
+      );
+      router.push(pushUrl);
+    } catch (error) {
+      throw new Error("Error occured on stringifying the url");
+    }
+  };
   return (
     <div className=" rounded-lg px-4 gap-y-8 space-y-4 py-10 flex justify-center items-center w-full m-5 bg-slate-300 flex-col">
       <div className=" flex flex-row justify-between items-center">
@@ -31,7 +68,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ types, makes,models }) => {
         </div>
       </div>
       <div className=" grid grid-cols-2  w-full gap-6 ">
-        <select className="select select-ghost w-full max-w-xs p-4 rounded" value={selectedMake} onChange={(e)=>setSelectedMake(e.target.value)}>
+        <select
+          className="select select-ghost w-full max-w-xs p-4 rounded"
+          value={selectedMake}
+          onChange={(e) => setSelectedMake(e.target.value)}
+        >
           <option disabled selected>
             Select a car make
           </option>
@@ -45,8 +86,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ types, makes,models }) => {
             </option>
           ))}
         </select>
-        
-        <select className="select select-ghost w-full max-w-xs p-4 rounded" value={bodyType} onChange={(e)=>sestBodyType(e.target.value)}>
+
+        <select
+          className="select select-ghost w-full max-w-xs p-4 rounded"
+          value={bodyType}
+          onChange={(e) => setBodyType(e.target.value)}
+        >
           <option disabled selected>
             Select a Body Type
           </option>
@@ -57,20 +102,24 @@ const SearchBar: React.FC<SearchBarProps> = ({ types, makes,models }) => {
               className=" flex p-5 justify-center items-center rounded-md bg-slate-200 font-bold mb-3"
             >
               <div className=" w-full flex justify-center items-center">
-                <div>{type.name}</div> 
+                <div>{type.name}</div>
                 <div className=" w-5 h-5 relative rounded">
-                    <Image
-                      fill
-                      src={type.image}
-                      alt=""
-                      className=" object-cover object-center"
-                      />
+                  <Image
+                    fill
+                    src={type.image}
+                    alt=""
+                    className=" object-cover object-center"
+                  />
                 </div>
-                </div>
+              </div>
             </option>
           ))}
         </select>
-        <select className="select select-ghost w-full max-w-xs p-4 rounded" value={selectedMake} onChange={(e)=>setSelectedMake(e.target.value)}>
+        <select
+          className="select select-ghost w-full max-w-xs p-4 rounded"
+          value={model}
+          onChange={(e) => setModel(e.target.value)}
+        >
           <option disabled selected>
             Select a car model
           </option>
@@ -86,13 +135,17 @@ const SearchBar: React.FC<SearchBarProps> = ({ types, makes,models }) => {
         </select>
         <input
           type="text"
+          value={color}
+          onChange={(e) => setColor(e.target.value)}
           placeholder="Color"
-          className="w-full px-4 py-4 text-black bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+          className="input input-bordered w-full max-w-xs p-5 rounded"
         />
         <input
           type="text"
-          placeholder="Year of Manufacture"
-          className="w-full px-4 py-4 text-black bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+          value={yom}
+          onChange={(e) => setYom(e.target.value)}
+          placeholder="Year of Manufancture"
+          className="input input-bordered w-full max-w-xs p-5 rounded"
         />
       </div>
     </div>

@@ -1,18 +1,21 @@
 "use client"
 import { useEffect, useRef, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 import Image from 'next/image'
+import { cn } from '@/lib/utils'
 export const Navbar =() => {
+  const pathname = usePathname()
 
   const [state, setState] = useState(false)
   const navRef:any = useRef()
 
   // Replace javascript:void(0) path with your path
   const navigation = [
-      { title: "Home", path: "javascript:void(0)" },
-      { title: "About", path: "javascript:void(0)" },
-      { title: "Blog", path: "javascript:void(0)" },
-      { title: "Contacts", path: "javascript:void(0)" },
+      { title: "Home", path: "/" ,active:pathname ==='/'},
+      { title: "About", path: "/about", active:pathname==='/about'},
+      { title: "Blog", path: "/blog",active:pathname==='/blog' },
+      { title: "Contacts", path: "/contact",active:pathname==='/contact' },
   ]
 
   useEffect(() => {
@@ -90,7 +93,7 @@ export const Navbar =() => {
                             {
                                 navigation.map((item, idx) => {
                                     return (
-                                        <li key={idx} className="text-gray-600 hover:text-indigo-600">
+                                        <li key={idx} className={cn("text-gray-600 hover:text-indigo-600",item.active&&"font-bold text-indigo-500 text-xl font-mono")}>
                                             <a href={item.path}>
                                                 { item.title }
                                             </a>

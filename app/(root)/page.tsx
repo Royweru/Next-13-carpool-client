@@ -15,7 +15,7 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between space-y-2">
       <div className=" grid grid-cols-1 md:grid-cols-2 p-5 gap-8 mb-5 w-full mt-5 h-2/6">
-        <SearchBar types={types} makes={makes} />
+        <SearchBar types={types} makes={makes} models={models} />
         <Desc />
       </div>
       <section className=" w-full flex flex-col py-14 justify-start items-center">
