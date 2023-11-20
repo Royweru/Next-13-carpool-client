@@ -7,7 +7,14 @@ export const CTA=() => {
           <div className="max-w-screen-xl mx-auto md:px-8">
               <div className="items-center gap-x-12 sm:px-4 md:px-0 lg:flex">
                   <div className="flex-1 sm:hidden lg:block">
-                      {/* <Carousel /> */}
+                      <div className=' w-full relative h-full'>
+                         <Image
+                          fill 
+                          src="/images/billboard.jpeg"
+                          alt=''
+                          className=' object-cover object-center'
+                          />
+                      </div>
                   </div>
                   <div className="max-w-xl px-4 space-y-3 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl">
                       <h3 className="text-indigo-600 font-semibold">

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import SearchBar from './search-bar'
+import ExtraSearch from './extra-search'
 import { Make, Model, Type } from '@/types'
 
 
@@ -14,19 +15,12 @@ const Banner:React.FC<BannerProps> = ({
     types,makes,models
 }) => {
   return (
-    <section className="mt-5 mx-auto max-w-screen-xl pb-5 px-4 items-center lg:flex md:px-8 gap-x-3 w-full">
+    <section className="mt-5 w-full pb-5 px-4 items-center lg:flex md:px-8 gap-x-3 ">
                 <div className="space-y-4 flex-1 w-full">
                    <SearchBar types={types} makes={makes} models={models}  />
                 </div>
-                <div className="flex-1 text-center mt-7 lg:mt-0 lg:ml-3 rounded-lg">
-                    <div className=' relative w-full  h-96 rounded-md'>
-                      <Image 
-                        src="/images/show.jpg"
-                        alt=''
-                        fill
-                        className=' object-cover object-center'
-                        />
-                    </div>
+                <div className="flex-1 text-center mt-7 lg:mt-0 lg:ml-3 rounded-lg border-transparent h-full">
+                   <ExtraSearch makes={makes} bodyTypes={types}/>
                 </div>
             </section>
   )

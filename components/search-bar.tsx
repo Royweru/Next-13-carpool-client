@@ -67,9 +67,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ types, makes, models }) => {
     }
   };
   return (
-    <div className=" rounded-lg px-4 gap-y-8 space-y-4 py-10 flex justify-center items-center w-full m-5 bg-slate-300 flex-col">
+    <div className=" bg-slate-800 rounded-lg px-4 gap-y-8 space-y-4 py-10 flex justify-center items-center w-full m-5 flex-col">
       <div className=" flex flex-row justify-between items-center">
-        <div className=" gap-x-2 flex items-center font-bold text-2xl text-black font-sans first-letter:text-gray-400 ">
+        <div className=" gap-x-2 flex items-center font-bold text-2xl text-white font-sans first-letter:text-gray-400 ">
           Search a car
         </div>
       </div>
