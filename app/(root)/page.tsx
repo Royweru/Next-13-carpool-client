@@ -20,7 +20,7 @@ export default async function Home() {
       <section className=" w-full flex flex-col py-14 justify-start items-center">
         <Carousel />
       </section>
-      <div className=" w-full bg-black p-5 ">
+      <div className=" w-full bg-black p-5 mb-4">
        <CTA />
       </div>
     </main>
