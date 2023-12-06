@@ -26,7 +26,7 @@ const ExtraSearch:React.FC<ExtraSearchProps> =({
                src={make.image}
                alt='image'
                className=' rounded-full object-cover object-center'
-               />
+              />
             </div>
         ))}
      </div>
