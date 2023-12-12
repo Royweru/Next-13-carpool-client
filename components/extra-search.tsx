@@ -11,14 +11,14 @@ const ExtraSearch:React.FC<ExtraSearchProps> =({
     bodyTypes
 }) => {
   return (
-    <div className=' w-full flex flex-col justify-start items-center h-full space-y-2 bg-slate-200 rounded-2xl py-3'>
+    <div className=' w-full flex flex-col justify-start items-center h-full space-y-2 bg-white rounded-2xl py-6'>
         <div className=' flex flex-col w-full'>
-         <h1 className=' text-sm font-bold font-sans '>
+         <h1 className=' text-sm font-bold  '>
            Search by Car Make
          </h1>
         </div>
        
-      <div className=' grid grid-cols-7 gap-1'>
+      <div className=' w-full grid grid-cols-8 gap-3'>
         {makes.map(make=>(
             <div key={make.id} className=' relative w-14 h-14 rounded-lg'>
               <Image
@@ -32,7 +32,7 @@ const ExtraSearch:React.FC<ExtraSearchProps> =({
      </div>
 
      <div className=' flex flex-col w-full'>
-         <h1 className=' text-sm font-bold font-sans '>
+         <h1 className=' text-sm font-bold  '>
            Search by Body type
          </h1>
      </div>

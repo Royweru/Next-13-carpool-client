@@ -15,11 +15,11 @@ const Banner:React.FC<BannerProps> = ({
     types,makes,models
 }) => {
   return (
-    <section className="mt-5 w-full pb-5 px-4 items-center lg:flex md:px-8 gap-x-3 ">
+    <section className="mt-5 w-full pb-3 px-4 items-center md:flex md:px-6 gap-x-5 ">
                 <div className="space-y-4 flex-1 w-full">
                    <SearchBar types={types} makes={makes} models={models}  />
                 </div>
-                <div className="flex-1 text-center mt-7 lg:mt-0 lg:ml-3 rounded-lg border-transparent h-full">
+                <div className="flex-1 text-center mt-7 py-6 lg:mt-0 lg:ml-3 rounded-lg border-transparent h-full">
                    <ExtraSearch makes={makes} bodyTypes={types}/>
                 </div>
             </section>

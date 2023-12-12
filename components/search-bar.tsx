@@ -139,13 +139,13 @@ const SearchBar: React.FC<SearchBarProps> = ({ types, makes, models }) => {
             </option>
           ))}
         </select>
-        <input
+        {/* <input
           type="text"
           value={color}
           onChange={(e) => setColor(e.target.value)}
           placeholder="Color"
           className="input input-bordered w-full max-w-xs p-5 rounded"
-        />
+        /> */}
         <input
           type="text"
           value={yom}
@@ -154,7 +154,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ types, makes, models }) => {
           className="input input-bordered w-full max-w-xs p-5 rounded"
         />
         <div className=" w-full flex items-center justify-end">
-          <Button variant="ghost" className=" flex justify-center gap-x-4 items-center" size="lg" onClick={onSearch}>
+          <Button variant="ghost" className=" flex justify-center gap-x-4 items-center text-white" size="lg" onClick={onSearch}>
             <Search size={30}/>
              SEARCH
           </Button>

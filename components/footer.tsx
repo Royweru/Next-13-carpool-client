@@ -20,7 +20,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="text-gray-500 bg-white px-4 py-5 max-w-screen-xl mx-auto md:px-8 border-t-[2px]">
+    <footer className="text-gray-500 w-full bg-slate-200 mt-4 px-4 py-5  mx-auto md:px-8 border-t-[2px]">
       <div className="max-w-lg sm:mx-auto sm:text-center">
         <div className=" w-32 h-10 relative">
           <Image fill alt="" src="/images/logo.jpg" />
